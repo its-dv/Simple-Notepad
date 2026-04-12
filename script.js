@@ -4,17 +4,17 @@ const textarea = document.getElementById("notepad");
 // Save text in localStorage
 function saveText() {
   localStorage.setItem("notepadContent", textarea.value);
-  alert("Saved!");
+  showToast("Text saved");
 }
 
 // Load text from localStorage
 function loadText() {
   const saved = localStorage.getItem("notepadContent");
-  alert("Loaded!");
   if (saved !== null) {
     textarea.value = saved;
+    showToast("Text loaded");
   } else {
-    alert("Nothing saved yet.");
+    showToast("Nothing saved yet");
   }
 }
 
@@ -22,7 +22,7 @@ function loadText() {
 function clearNotepad() {
   textarea.value = "";
   localStorage.removeItem("notepadContent");
-  alert("Cleared!");
+  showToast("Text cleared");
 }
 
 // Switch between light and dark themes
@@ -45,7 +45,18 @@ function switchTheme() {
   }
 }
 
-// Auto-load when the page is opened
+// Show a message about saving/loading/clearing
+function showToast(text) {
+  const el = document.getElementById("toast");
+  el.textContent = text;
+  el.classList.add("show");
+
+  setTimeout(() => {
+    el.classList.remove("show");
+  }, 2000);
+}
+
+// Text auto-load when the page is opened
 window.onload = () => {
   const saved = localStorage.getItem("notepadContent");
   if (saved) {
@@ -53,7 +64,7 @@ window.onload = () => {
   }
 }
 
-// Auto-load theme preference and icon
+// Theme auto-load when the page is opened
 window.onload = () => {
   const theme = localStorage.getItem("theme");
   if (theme === "dark") {

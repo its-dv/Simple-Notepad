@@ -73,6 +73,25 @@ button {
   height: 24px;
 }
 
+.toast {
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #191919;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: none;
+}
+
 .updated {
   opacity: 0.5;
   font-size: 12px;
