@@ -21,6 +21,14 @@ function loadText() {
 // Switch between light and dark themes
 function switchTheme() {
   document.body.classList.toggle("dark");
+
+  const icon = document.getElementById("themeIcon");
+
+  if (document.body.classList.contains("dark")) {
+    icon.src = "images/sun.svg";
+  } else {
+    icon.src = "images/moon.svg";
+  }
 }
 
 // Auto-load when the page is opened
