@@ -1,3 +1,5 @@
+"use strict";
+
 // script.js - index.html
 const textarea = document.getElementById("notepad");
 
