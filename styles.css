@@ -61,14 +61,29 @@ button {
 
   position: fixed;
   top: 7px;
-  right: 7px;
+  right: 10px;
+}
+
+#translateButton {
+  background: none;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+
+  position: fixed;
+  top: 7px;
+  right: 50px;
 }
 
 .dark #themeButton {
   filter: invert(1);
 }
 
-#themeIcon {
+.dark #translateButton {
+  filter: invert(1);
+}
+
+.fixedIcons {
   width: 24px;
   height: 24px;
 }
@@ -95,4 +110,16 @@ button {
 .updated {
   opacity: 0.5;
   font-size: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+#dropdownLanguages {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  background: #000000;
+  width: 150px;
 }

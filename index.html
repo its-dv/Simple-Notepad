@@ -12,12 +12,26 @@
   <h1>Simple Notepad</h1>
   <textarea id="notepad" placeholder="Write your notes here..."></textarea>
   <br>
+
   <button onclick="saveText()">Save</button>
+
   <button onclick="loadText()">Load</button>
-  <button id="themeButton" onclick="switchTheme()">
-    <img id="themeIcon" src="images/moon.svg" alt="Switch Theme">
-  </button>
+
   <button onclick="clearNotepad()">Clear</button>
+
+  <button id="themeButton" onclick="switchTheme()">
+    <img class="fixedIcons" id="themeIcon" src="images/moon.svg" alt="Switch Theme">
+  </button>
+
+  <button id="translateButton" onclick="translate()">
+    <img class="fixedIcons" src="images/translate.svg" alt="Translate">
+  </button>
+
+  <ul id="dropdownLanguages" class="hidden">
+    <li onclick="translateTo('en')">English</li>
+    <li onclick="translateTo('es')">Deutsch</li>
+    <li onclick="translateTo('fr')">Français</li>
+  </ul>
 
   <div id="toast" class="toast">Message</div>
 

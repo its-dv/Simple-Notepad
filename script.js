@@ -12,7 +12,7 @@ function saveText() {
 // Load text from localStorage
 function loadText() {
   const saved = localStorage.getItem("notepadContent");
-  if (saved !== null) {
+  if (saved !== null && saved !== "") {
     textarea.value = saved;
     showToast("Text loaded");
   } else {
@@ -77,3 +77,10 @@ window.onload = () => {
     icon.src = "images/sun.svg";
   }
 };
+
+const btn = document.getElementById("translateButton");
+const menu = document.getElementById("dropdownLanguages");
+
+btn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
