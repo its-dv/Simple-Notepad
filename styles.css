@@ -1,3 +1,4 @@
+/* 1. Base */
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
@@ -24,6 +25,8 @@ button {
   border-radius: 3px;
 }
 
+
+/* 2. Theme */
 .dark {
   background-color: #202020;
   color: white;
@@ -53,33 +56,25 @@ button {
   border-radius: 3px;
 }
 
-#themeButton {
+
+/* 3. Preferences */
+.preferenceButton {
   background: none;
   padding: 0;
   border: none;
   cursor: pointer;
-
   position: fixed;
   top: 7px;
-  right: 10px;
 }
 
-#translateButton {
+.dark .preferenceButton {
   background: none;
   padding: 0;
   border: none;
   cursor: pointer;
-
   position: fixed;
   top: 7px;
-  right: 50px;
-}
 
-.dark #themeButton {
-  filter: invert(1);
-}
-
-.dark #translateButton {
   filter: invert(1);
 }
 
@@ -88,6 +83,53 @@ button {
   height: 24px;
 }
 
+#themeButton {
+  right: 50px;
+}
+
+#translateButton {
+  right: 10px;
+}
+
+.language {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownTranslate {
+  position: absolute;
+  top: 65px;
+  left: 100%;
+  border-radius: 3px;
+
+  background: #eee;
+  padding: 10px;
+  margin: 0;
+  list-style: none;
+  width: 150px;
+  border: 1px solid #ccc;
+}
+
+#dropdownTranslate {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  background: #ebebeb;
+  width: 150px;
+  border: 1px solid #bdbdbd;
+}
+
+.dark #dropdownTranslate {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  background: #191919;
+  width: 150px;
+  border: 1px solid #ffffff;
+}
+
+
+/* 4. Notifications */
 .toast {
   position: fixed;
   bottom: 20%;
@@ -107,48 +149,8 @@ button {
   pointer-events: none;
 }
 
-.updated {
-  opacity: 0.5;
-  font-size: 12px;
-}
 
+/* 5. Utilities */
 .hidden {
   display: none;
-}
-
-.language {
-  position: relative;
-  display: inline-block;
-}
-
-#dropdownLanguages {
-  list-style: none;
-  padding: 10px;
-  margin: 0;
-  background: #ebebeb;
-  width: 150px;
-  border: 1px solid #bdbdbd;
-}
-
-.dark #dropdownLanguages {
-  list-style: none;
-  padding: 10px;
-  margin: 0;
-  background: #191919;
-  width: 150px;
-  border: 1px solid #ffffff;
-}
-
-.dropdownLanguages {
-  position: absolute;
-  top: 65px;
-  left: 100%;
-  border-radius: 3px;
-
-  background: #eee;
-  padding: 10px;
-  margin: 0;
-  list-style: none;
-  width: 150px;
-  border: 1px solid #ccc;
 }

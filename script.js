@@ -5,8 +5,12 @@ const textarea = document.getElementById("notepad");
 
 // Save text in localStorage
 function saveText() {
-  localStorage.setItem("notepadContent", textarea.value);
-  showToast("Text saved");
+  if (textarea.value !== null && textarea.value !== "") {
+    localStorage.setItem("notepadContent", textarea.value);
+    showToast("Text saved");
+  } else {
+    showToast("Nothing to save");
+  }
 }
 
 // Load text from localStorage
@@ -79,7 +83,7 @@ window.onload = () => {
 };
 
 const btn = document.getElementById("translateButton");
-const menu = document.getElementById("dropdownLanguages");
+const menu = document.getElementById("dropdownTranslate");
 
 btn.addEventListener("click", () => {
   menu.classList.toggle("hidden");

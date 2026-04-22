@@ -19,16 +19,16 @@
 
   <button onclick="clearNotepad()">Clear</button>
 
-  <button id="themeButton" onclick="switchTheme()">
+  <button class="preferenceButton" id="themeButton" onclick="switchTheme()">
     <img class="fixedIcons" id="themeIcon" src="images/moon.svg" alt="Switch Theme">
   </button>
 
   <div class="language">
-    <button id="translateButton" onclick="translate()">
+    <button class="preferenceButton" id="translateButton" onclick="translate()">
       <img class="fixedIcons" src="images/translate.svg" alt="Translate">
     </button>
 
-    <ul id="dropdownLanguages" class="dropdownLanguages hidden">
+    <ul id="dropdownTranslate" class="dropdownTranslate hidden">
       <li onclick="translateTo('en')">English</li>
       <li onclick="translateTo('es')">Deutsch</li>
       <li onclick="translateTo('fr')">Français</li>
@@ -44,6 +44,5 @@
 </body>
 <footer>
   <p>&copy; 2026 Simple Notepad. All rights aren't reserved.</p>
-  <p class="updated">Last updated: 21.04.2026</p>
 </footer>
 </html>
