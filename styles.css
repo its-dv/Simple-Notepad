@@ -25,7 +25,6 @@ button {
   border-radius: 3px;
 }
 
-
 /* 2. Theme */
 .dark {
   background-color: #202020;
@@ -55,7 +54,6 @@ button {
   border: #555 1px solid;
   border-radius: 3px;
 }
-
 
 /* 3. Preferences */
 .preferenceButton {
@@ -91,10 +89,6 @@ button {
   right: 10px;
 }
 
-#dropdownTranslate legend {
-  margin-left: 25%;
-}
-
 #languages {
   display: flex;
   justify-content: center;
@@ -103,36 +97,25 @@ button {
 
 .dropdownTranslate {
   position: fixed;
-  top: 50px;
+  top: 45px;
   right: 10px;
-  border-radius: 3px;
-
-  background: #eee;
-  padding: 10px;
-  margin: 0;
-  list-style: none;
+  border-radius: 5px;
   width: 150px;
-  border: 1px solid #ccc;
 }
 
 #dropdownTranslate {
-  list-style: none;
   padding: 10px;
-  margin: 0;
   background: #ebebeb;
-  width: 150px;
+  width: 100px;
   border: 1px solid #bdbdbd;
 }
 
 .dark #dropdownTranslate {
-  list-style: none;
   padding: 10px;
-  margin: 0;
   background: #191919;
-  width: 150px;
+  width: 100px;
   border: 1px solid #444;
 }
-
 
 /* 4. Notifications */
 .toast {
@@ -153,7 +136,6 @@ button {
   opacity: 1;
   pointer-events: none;
 }
-
 
 /* 5. Utilities */
 .hidden {
