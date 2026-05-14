@@ -12,13 +12,24 @@
     <header>
       <h1>Simple Notepad</h1>
     </header>
+
     <main>
       <div class="row">
         <h2>Note title</h2>
         <button id="createNote" onclick="createNote()">+</button>
       </div>
-      <textarea id="notepad" data-i18n-placeholder="textarea"></textarea>
-      <br>
+
+      <div class="main-container">
+        <aside class="sidebar">
+          <ul>
+            <li>Note 1</li>
+            <li>Note 2</li>
+            <li>Note 3</li>
+          </ul>
+        </aside>
+
+          <textarea id="notepad" data-i18n-placeholder="textarea"></textarea>
+      </div>
 
       <p id="characterCounter" data-i18n="characterCounterError">Character count: Something went wrong...</p>
       <button title="( Ctrl + S )" data-i18n="save" onclick="saveText()">Save</button>
@@ -34,7 +45,7 @@
           <img class="fixedIcons" src="images/translate.svg" alt="Translate">
         </button>
 
-        <fieldset id="dropdownTranslate" class="dropdownTranslate hidden">
+        <fieldset id="dropdownTranslate">
           <legend id="languages" data-i18n="languages">Languages</legend>
           <div>
             <input id="english" type="radio" name="language" value="en" checked>
