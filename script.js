@@ -21,8 +21,27 @@ function createNote() {
 }
 
 // Rename the note title (for future updates)
-function titleRename() {
-  
+const titleInput = document.getElementById('titleInput');
+const noteTitle = document.getElementById('noteTitle');
+
+titleInput.addEventListener('input', () => {
+  noteTitle.textContent = titleInput.value;
+});
+
+// Show and hide the title input field (for future updates)
+const input = document.getElementById('titleInput');
+input.value = localStorage.getItem('noteTitle') || '';
+
+function popup() {
+  const titleRename = document.getElementById('titleRename');
+  const titleInput = document.getElementById('titleInput');
+
+  if (titleInput.style.display === "none") {
+    titleInput.style.display = 'block';
+  } else {
+    titleInput.style.display = 'none';
+    localStorage.setItem('noteTitle', input.value);
+  }
 }
 
 // Save notes to localStorage (for future updates)
@@ -119,30 +138,47 @@ function showToast(text) {
   }, 2000);
 }
 
-// Text auto-load when the page is opened
-window.onload = () => {
-  const saved = localStorage.getItem("notepadContent");
-  if (saved) {
-    textarea.value = saved;
-  }
-}
+// Show a message about copying/cutting/pasting
+document.addEventListener('copy', () => {
+  showToast(translate("textCopy"));
+});
+document.addEventListener('paste', () => {
+  showToast(translate("textPaste"));
+});
+document.addEventListener('cut', () => {
+  showToast(translate("textCut"));
+});
 
-// Theme auto-load when the page is opened
-window.onload = () => {
+// Load saved text, title, and theme on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTitle = localStorage.getItem("noteTitle") || "";
+  if (savedTitle == null || savedTitle == "") {
+    noteTitle.textContent = "Untitled";
+  } else {
+    titleInput.value = savedTitle;
+    noteTitle.textContent = savedTitle;
+  }
+
+  const savedText = localStorage.getItem("notepadContent");
+  if (savedText !== null) {
+    textarea.value = savedText;
+  }
+
   const theme = localStorage.getItem("theme");
   if (theme === "dark") {
     document.body.classList.add("dark");
+    document.getElementById("themeIcon").src = "images/sun.svg";
+  } else {
+    document.getElementById("themeIcon").src = "images/moon.svg";
   }
-  const icon = document.getElementById("themeIcon");
-  if (document.body.classList.contains("dark")) {
-    icon.src = "images/sun.svg";
-  }
-};
 
-const btn = document.getElementById("translateButton");
+  updateUI();
+});
+
+const translateButton = document.getElementById("translateButton");
 const menu = document.getElementById("dropdownTranslate");
 
-btn.addEventListener("click", () => {
+translateButton.addEventListener("click", () => {
   menu.classList.toggle("hidden");
 });
 
@@ -185,7 +221,10 @@ const translations = {
     nothingToLoad: "Nothing saved yet",
     noteAlreadyCleared: "Note already cleared",
     noteCleared: "Note cleared",
-    noteCreated: "Note created"
+    noteCreated: "Note created",
+    textCopy: "Text copied",
+    textPaste: "Text pasted",
+    textCut: "Text cut"
   },
   de: {
     save: "Speichern",
@@ -202,7 +241,10 @@ const translations = {
     nothingToLoad: "Nichts gespeichert yet",
     noteAlreadyCleared: "Notiz bereits gelöscht",
     noteCleared: "Notiz gelöscht",
-    noteCreated: "Notiz erstellt"
+    noteCreated: "Notiz erstellt",
+    textCopy: "Text kopiert",
+    textPaste: "Text eingefügt",
+    textCut: "Text ausgeschnitten"
   },
   fr: {
     save: "Enregistrer",
@@ -219,7 +261,10 @@ const translations = {
     nothingToLoad: "Rien enregistré pour le moment",
     noteAlreadyCleared: "Note déjà effacée",
     noteCleared: "Note effacée",
-    noteCreated: "Note créée"
+    noteCreated: "Note créée",
+    textCopy: "Texte copié",
+    textPaste: "Texte collé",
+    textCut: "Texte coupé"
   },
   ru: {
     save: "Сохранить",
@@ -236,7 +281,10 @@ const translations = {
     nothingToLoad: "Пока ничего не сохранено",
     noteAlreadyCleared: "Заметка уже очищена",
     noteCleared: "Заметка очищена",
-    noteCreated: "Заметка создана"
+    noteCreated: "Заметка создана",
+    textCopy: "Текст скопирован",
+    textPaste: "Текст вставлен",
+    textCut: "Текст вырезан"
   }
 };
 

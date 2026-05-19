@@ -16,7 +16,8 @@
     <main>
       <div class="row">
         <h2 id="noteTitle">Untitled</h2>
-        <button id="titleRename" onclick="titleRename()">
+        <input type="text" id="titleInput" placeholder="Enter note title..." maxLength="20" style="display:none;">
+        <button id="titleRename" onclick="popup()">
           <img class="fixedIcons" src="images/pencil.svg" alt="Translate">
         </button>
         <button id="createNote" onclick="createNote()">+</button>
